@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Celebrating Our Beautiful 7 Months Together!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+<body>
+   
+<audio id="bg-music" loop style="display: none;">
+  <source src="Lover.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  window.addEventListener('click', () => {
+    const music = document.getElementById('bg-music');
+    music.play();
+  });
+</script>
+
+</body>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .card {
+            background: #e4dede;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(22, 31, 156, 0.2);
+            padding: 50px 40px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        .heart {
+            color: #d34545;
+            font-size: 2.5rem;
+            animation: heartbeat 5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: bolder;
+            margin-bottom: 10px;
+            color: #37c7aa;
+        }
+        .message {
+            font-size: 1.1rem;
+            color: #754b4b;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .footer {
+            font-size: 1rem;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+     <meta charset="UTF-8">
+    <title>Heart Bubble Animation</title>
+    <script>
+        // Show a heart emoji at the click position if clicked inside the card
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.querySelector('.card');
+            card.addEventListener('click', function(e) {
+                // Prevent bubbling to document click
+                e.stopPropagation();
+                const heart = document.createElement('div');
+                const hearts = ['💗', '💖', '❤️', '💕', '💞',  '💝', '🩷', '💓', '💟',];
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.position = 'fixed';
+                heart.style.left = (e.clientX - 16) + 'px';
+                heart.style.top = (e.clientY - 16) + 'px';
+                heart.style.fontSize = '2.2rem';
+                heart.style.pointerEvents = 'none';
+                heart.style.opacity = 1;
+                heart.style.transition = 'transform 1s, opacity 1s';
+                heart.style.transform = 'scale(1)';
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.style.transform = 'scale(1.6) translateY(-40px)';
+                    heart.style.opacity = 0;
+                }, 10);
+                setTimeout(() => {
+                    heart.remove();
+                }, 1100);
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bubble-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart-bubble {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity: 0.8;
+            animation: floatUp 6s linear infinite;
+            will-change: transform, opacity;
+        }
+        .heart {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform: scale(1);
+            animation: pulse 1.5s infinite;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 32px;
+            background: #ff6f91;
+            border-radius: 20px 20px 0 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 0 10px #ffb6c1, 0 0 30px #ff6f91;
+        }
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.8) rotate(0deg);
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2) rotate(30deg);
+                opacity: 0;
+            }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1);}
+            50% { transform: scale(1.15);}
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container" id="bubbleContainer"></div>
+    <script>
+        function randomBetween(a, b) {
+            return a + Math.random() * (b - a);
+        }
+        function createHeartBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'heart-bubble';
+            bubble.style.left = randomBetween(5, 95) + 'vw';
+            bubble.style.animationDuration = randomBetween(4, 8) + 's';
+            bubble.style.opacity = randomBetween(0.6, 1);
+            bubble.style.transform = `scale(${randomBetween(0.7, 1.3)})`;
+            // Random color
+            const colors = ['#ff6f91', '#ffb6c1', '#f67280', '#c06c84', '#6c5b7b', '#355c7d'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            bubble.innerHTML = `
+                <div class="heart" style="background: ${color}; box-shadow: 0 0 20px ${color};"></div>
+            `;
+            document.getElementById('bubbleContainer').appendChild(bubble);
+            setTimeout(() => bubble.remove(), 8000);
+        }
+        setInterval(createHeartBubble, 350);
+        // Initial burst
+        for (let i = 0; i < 10; i++) createHeartBubble();
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="heart">❤️</div>
+        <div class="title" id="congrats-title" style="cursor:pointer;">Congratulations My Love!</div>
+        <div id="congrats-message" style="display:none; margin-bottom:15px; color:#b83250; font-size:1.1rem;">
+           
+        </div>
+        <script>
+            document.getElementById('congrats-title').addEventListener('click', function() {
+                const msg = document.getElementById('congrats-message');
+                msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
+            });
+        </script>
+        <div class="message" id="message">
+
+        <span id="kiss-emoji-trigger" style="display:inline-block; background: linear-gradient(90deg, #fcb69f 0%, #ffecd2 100%); padding: 12px 28px; border-radius: 22px 8px 22px 8px; font-weight: bold; color: #b83250; font-size: 1.3rem; box-shadow: 0 6px 18px rgba(243, 114, 114, 0.22); letter-spacing: 2px; cursor:pointer; transition: background 0.4s, color 0.4s, transform 0.2s; position:relative; overflow:hidden;">
+            <span style="position:relative; z-index:2;">✨ A special message for you! ✨</span>
+             
+            
+            <span id="sparkle" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:2rem; opacity:0; pointer-events:none; transition:opacity 0.5s;">💫</span>
+        </span>
+        
+        
+        <script>
+            const trigger = document.getElementById('kiss-emoji-trigger');
+            const emoji = document.getElementById('kiss-emoji');
+            const sparkle = document.getElementById('sparkle');
+            trigger.addEventListener('click', function() {
+                emoji.style.display = emoji.style.display === 'inline' ? 'none' : 'inline';
+                sparkle.style.opacity = 1;
+                trigger.style.transform = 'scale(1.08)';
+                setTimeout(() => {
+                    sparkle.style.opacity = 3
+                    trigger.style.transform = 'scale(1)';
+                }, 700);
+            });
+        </script>
+            <span style="display:inline-block; margin-top:10px; font-size:1.2rem; color:#d34545; cursor:pointer;" id="kiss-emoji-trigger">
+            <span style="font-size:1.5rem; color:#e28e8e;">❤️</span>
+            <span style="font-size:1.5rem; color:#d34545;">❤️</span>    
+            <span id="kiss-emoji" style="margin-left:10px; display:none;"> Happyyy 7 monthss to us!<br
+                >yaayyyyyyyyyyyyyyyyyy❤️❤️❤️❤️❤️<br>
+        aap toh mere chotu se pyaare se babyy ho nd uk everything feels so so so good when i am with you .<br>
+        You make my inner child come out .You are reallyy myy safe space .I don't have any words to describe my love for you  nd i will give my bestt to make you feel special nd happy  .<br>
+        .<br>
+        I love you so much my little BABY 😘😘.You are my pricious little babyy. apkii pyaari si smile makes my day , i love seeing you happy .uk i always wish that when we will live together, it will be like a dream come true.
+        </span>
+        <script>
+            document.getElementById('kiss-emoji-trigger').addEventListener('click', function() {
+                var emoji = document.getElementById('kiss-emoji');
+                emoji.style.display = emoji.style.display === 'inline' ? 'none' : 'inline';
+            });
+        </script> 
+
+        </div>
+        <div class="footer">
+            <a href="23.html" style="color: #d34545; text-decoration: none; font-weight: bold; cursor: pointer;">
+            Foreverr yoursss myy loveee💖
+            (click on me to reveal a surprise!)
+            </a>
+        </div>
+    </div>
+    <script>
+        console.log("In these few months we make lots of memories  ❤️");
+        
+
+        card.addEventListener('click', function(e) {
+            // Only create bubble if click is inside the card (not on heart icon)
+            if (!card.contains(e.target)) return;
+            if (!e.target.classList.contains('heart')) {
+                createHeartBubble(e.clientX, e.clientY);
+            }
+        });
+
+// Create a small button below the card.............................................
+        const btn = document.createElement('button');
+        btn.textContent = 'Click Me!';
+        btn.style.marginTop = '24px';
+        btn.style.padding = '8px 18px';
+        btn.style.borderRadius = '8px';
+        btn.style.border = 'none';
+        btn.style.background = '#37c7aa';
+        btn.style.color = '#fff';
+        btn.style.fontWeight = 'bold';
+        btn.style.fontSize = '1rem';
+        btn.style.cursor = 'pointer';
+        btn.style.boxShadow = '0 2px 8px rgba(67,198,172,0.15)';
+        btn.addEventListener('mouseenter', function() {
+            btn.style.background = '#43c6ac';
+        });
+        btn.addEventListener('mouseleave', function() {
+            btn.style.background = '#37c7aa';
+        });
+        btn.addEventListener('click', function() {
+            // Open a new page with the same card background
+            window.open('mcq.html', '_blank');
+        });
+        document.body.appendChild(btn);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Dearest Love 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      background: linear-gradient(135deg, #f8ffae, #43c6ac);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .card {
+      background: #fff9f9;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      width: 420px;
+      position: relative;
+    }
+
+    .heart {
+      font-size: 2.5rem;
+      animation: heartbeat 2s infinite;
+      color: #d34545;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .title {
+      font-size: 1.8rem;
+      color: #37c7aa;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .message {
+      font-size: 1rem;
+      color: #754b4b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      white-space: pre-line;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .bubble-container {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart-bubble {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.8;
+      animation: floatUp 6s linear infinite;
+      will-change: transform, opacity;
+    }
+
+    .heart {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.8) rotate(0deg); opacity: 0.8; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2) rotate(30deg); opacity: 0; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);}
+      50% { transform: scale(1.15);}
+    }
+
+    button {
+      margin-top: 24px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: none;
+      background: #37c7aa;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(67,198,172,0.15);
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #43c6ac;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bubble-container" id="bubbleContainer"></div>
+
+  <div class="card">
+    <div class="heart">❤️</div>
+    <div class="title" id="congrats-title">Congratulations My Love!</div>
+    <div id="congrats-message" style="display:none; color:#b83250; font-size:1.1rem;">
+      You're the most precious part of my life ❤️ I feel grateful every single day.
+    </div>
+    <script>
+  // Toggle congratulation message
+  document.getElementById('congrats-title').addEventListener('click', function() {
+    const msg = document.getElementById('congrats-message');
+    msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Toggle kiss message
+  document.getElementById('kiss-trigger').addEventListener('click', function() {
+    const kiss = document.getElementById('kiss-message');
+    kiss.style.display = kiss.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Toggle footer surprise
+  document.getElementById('surprise-trigger').addEventListener('click', function() {
+    const msg = document.getElementById('surprise-message');
+    msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Floating bubbles
+  function randomBetween(a, b) {
+    return a + Math.random() * (b - a);
+  }
+
+  function createHeartBubble() {
+    const bubble = document.createElement('div');
+    bubble.className = 'heart-bubble';
+    bubble.style.left = randomBetween(5, 95) + 'vw';
+    bubble.style.animationDuration = randomBetween(4, 8) + 's';
+    bubble.style.opacity = randomBetween(0.6, 1);
+    bubble.style.transform = `scale(${randomBetween(0.7, 1.3)})`;
+
+    const hearts = ['💗', '💖', '❤️', '💕', '💞', '💝', '🩷', '💓', '💟'];
+    bubble.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    document.getElementById('bubbleContainer').appendChild(bubble);
+    setTimeout(() => bubble.remove(), 8000);
+  }
+
+  setInterval(createHeartBubble, 350);
+  for (let i = 0; i < 10; i++) createHeartBubble();
+</script>
+
+
+    <div class="message">
+      <span id="kiss-trigger" style="display:inline-block; background: linear-gradient(90deg, #fcb69f, #ffecd2); padding: 12px 28px; border-radius: 22px 8px; font-weight: bold; color: #b83250; font-size: 1.3rem; box-shadow: 0 6px 18px rgba(243,114,114,0.22); cursor:pointer;">
+        ✨ A special message for you! ✨
+      </span>
+      <div id="kiss-message" style="display:none; margin-top:15px;">
+        Happy 7 months to us! 💕 You're my chotu, my sunshine, my happy hug. Thank you for being the light of my world. 😘
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="23.html" style="color: #d34545; text-decoration: none; font-weight: bold;">
+        Forever yours, my love 💌 (click me for a surprise!)
+      </a>
+    </div>
+  </div>
+
+  <button onclick="window.open('mcq.html', '_blank')">Click Me!</button>
+
+  <script>
+    // Toggle message reveal
+    document.getElementById('congrats-title').addEventListener('click', function() {
+      const msg = document.getElementById('congrats-message');
+      msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Toggle kiss message
+    document.getElementById('kiss-trigger').addEventListener('click', function() {
+      const kiss = document.getElementById('kiss-message');
+      kiss.style.display = kiss.style.display === 'none' ? 'block' : 'none';
+    });
+    
+
+    // Floating bubbles
+    function randomBetween(a, b) {
+      return a + Math.random() * (b - a);
+    }
+
+    function createHeartBubble() {
+      const bubble = document.createElement('div');
+      bubble.className = 'heart-bubble';
+      bubble.style.left = randomBetween(5, 95) + 'vw';
+      bubble.style.animationDuration = randomBetween(4, 8) + 's';
+      bubble.style.opacity = randomBetween(0.6, 1);
+      bubble.style.transform = `scale(${randomBetween(0.7, 1.3)})`;
+
+      const hearts = ['💗', '💖', '❤️', '💕', '💞', '💝', '🩷', '💓', '💟'];
+      bubble.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      document.getElementById('bubbleContainer').appendChild(bubble);
+
+      setTimeout(() => bubble.remove(), 8000);
+    }
+
+    setInterval(createHeartBubble, 350);
+    for (let i = 0; i < 10; i++) createHeartBubble();
+  </script>
+
+</body>
+</html>
+
+  
